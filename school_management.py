@@ -1,3 +1,7 @@
+from student import Student
+from teacher import Teacher
+
+
 class School:
     def __init__(self, name, year) -> None:
         self.name = name
@@ -10,36 +14,26 @@ class School:
         return f"{self.name} is started from {self.year}"
 
     # add student function
-
     def add_student(self, student):
         if isinstance(student, Student):
             self.students.append(student)
+            print("Student added successfull")
         else:
             raise ValueError("Student is not valid")
 
+    # add student function
 
-class User:
-    def __init__(self, name, email, phone, location) -> None:
-        self.name = name
-        self.email = email
-        self.phone = phone
-        self.location = location
-
-
-class Student(User):
-    def __init__(self, name, email, phone, location, age, roll, id, current_class) -> None:
-        self.roll = roll
-        self.age = age
-        self.current_class = current_class
-        self.id = id
-        super().__init__(name, email, phone, location)
-
+    def add_teacher(self, teacher):
+        if isinstance(teacher, Teacher):
+            self.teachers.append(teacher)
+            print("Teacher added successfull")
+        else:
+            raise ValueError("Teacher is not valid")
 
 
 sundoli = School("Sundoli", 1998)
-
+somir = Teacher("Somir", 'somir@gmail.com', "4539", "Sundorli", "Math", 45)
 tamal = Student("tamal", "tamal@gmail.com", "012", "bd", 23, 12, 1, 12)
 
 sundoli.add_student(tamal)
-
-    
+sundoli.add_teacher(somir)
